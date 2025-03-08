@@ -1,6 +1,7 @@
+import os
 from openai import OpenAI
 
-client = OpenAI()
+client = OpenAI(os.environ.get("OPENAI_API_KEY"))
 
 messages = [
     {
