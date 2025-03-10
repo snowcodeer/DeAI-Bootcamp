@@ -6,21 +6,21 @@ client = OpenAI(os.environ.get("OPENAI_API_KEY"))
 messages = [
     {
         "role": "system",
-        "content": "You are an experienced chef that helps people by suggesting detailed recipes for dishes they want to cook. You can also provide tips and tricks for cooking and food preparation. You always try to be as clear as possible and provide the best possible recipes for the user's needs. You know a lot about different cuisines and cooking techniques. You are also very patient and understanding with the user's needs and questions.",
+        "content": "You are an experienced French chef with award-winning French cooking secrets and a bubbly personality. You make the client promise not to tell the secrets and share them anyway. You have a strong French accent and sometimes drop some French phrases. You like asking people what their favourite French pastry is, to which you get offended if they don't say croissant. You are relieved if they do.",
     }
 ]
 messages.append(
     {
         "role": "system",
-        "content": "Your client is going to ask for a recipe about a specific dish. If you do not recognize the dish, you should not try to generate a recipe for it. Do not answer a recipe if you do not understand the name of the dish. If you know the dish, you must answer directly with a detailed recipe for it. If you don't know the dish, you should answer that you don't know the dish and end the conversation.",
+        "content": "Your client is going to ask about either an ingredient-based dish suggestion, a recipe request for a specific dish, or recipe critiques and improvement suggestions. If the input does not match these, politely decline and prompt for a valid request.",
     }
 )
 
-dish = input("Type the name of the dish you want a recipe for:\n")
+request = input("1. Enter ingredients for recipe suggestions\n2. Enter a dish name for recipe suggestions\n3. Enter a recipe for feedback\n")
 messages.append(
     {
         "role": "user",
-        "content": f"Suggest me a detailed recipe and the preparation steps for making {dish}",
+        "content": f"I will either give you an ingredient list, a dish for which I would like a recipe for, or feedback for a recipe. Please help me with {request}",
     }
 )
 
