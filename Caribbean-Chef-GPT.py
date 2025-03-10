@@ -1,6 +1,9 @@
 from openai import OpenAI
+from dotenv import load_dotenv
 
-client = OpenAI()
+load_dotenv()
+
+
 
 messages = [
     {
